@@ -1,0 +1,5 @@
+resources:
+  - ./cluster.yml
+  - ./exchange.yml
+  - ./policy.yml
+  - ./queue.yml
