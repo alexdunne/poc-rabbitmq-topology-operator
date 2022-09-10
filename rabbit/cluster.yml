@@ -1,0 +1,9 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  namespace: software
+  name: rabbitmq
+  annotations:
+      rabbitmq.com/topology-allowed-namespaces: "*"
+spec:
+  replicas: 1

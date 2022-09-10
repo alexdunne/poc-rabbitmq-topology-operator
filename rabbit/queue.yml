@@ -1,0 +1,52 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: Queue
+metadata:
+  name: orders
+spec:
+  name: orders
+  autoDelete: false
+  durable: true
+  rabbitmqClusterReference:
+    name: rabbitmq
+  
+---
+
+apiVersion: rabbitmq.com/v1beta1
+kind: Binding
+metadata:
+  name: orders-binding
+spec:
+  source: orders
+  destination: orders
+  destinationType: queue
+  routingKey: "order.#"
+  rabbitmqClusterReference:
+    name: rabbitmq
+  
+---
+
+apiVersion: rabbitmq.com/v1beta1
+kind: Queue
+metadata:
+  name: orders-released
+spec:
+  name: orders-released
+  autoDelete: false
+  durable: true
+  rabbitmqClusterReference:
+    name: rabbitmq
+  
+---
+
+apiVersion: rabbitmq.com/v1beta1
+kind: Binding
+metadata:
+  name: orders-released-binding
+spec:
+  source: orders
+  destination: orders-released
+  destinationType: queue
+  routingKey: "order.released"
+  rabbitmqClusterReference:
+    name: rabbitmq
+  

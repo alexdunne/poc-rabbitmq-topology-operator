@@ -1,0 +1,12 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: Policy
+metadata:
+  name: dlq-policy
+spec:
+  name: dlq
+  pattern: "^orders"
+  applyTo: "queues"
+  definition:
+    dead-letter-exchange: orders-dlx
+  rabbitmqClusterReference:
+    name: rabbitmq

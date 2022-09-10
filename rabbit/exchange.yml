@@ -1,0 +1,27 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: Exchange
+metadata:
+  name: orders
+  namespace: software
+spec:
+  name: orders
+  type: topic
+  autoDelete: false
+  durable: true
+  rabbitmqClusterReference:
+    name: rabbitmq
+
+---
+
+apiVersion: rabbitmq.com/v1beta1
+kind: Exchange
+metadata:
+  name: orders-dlx
+  namespace: software
+spec:
+  name: orders-dlx
+  type: direct
+  autoDelete: false
+  durable: true
+  rabbitmqClusterReference:
+    name: rabbitmq
