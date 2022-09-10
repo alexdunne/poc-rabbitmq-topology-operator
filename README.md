@@ -6,12 +6,21 @@ Proof of concept (PoC) showing Kubernetes (K8s) RabbitMQ (RMQ) Topology Operator
 
 - Set up [Kind](https://kind.sigs.k8s.io/) to run a K8s cluster locally
 - Set up [RMQ Cluster Operator](https://www.rabbitmq.com/kubernetes/operator/install-operator.html)
-- Set up [RMQ Topology Operator](https://github.com/rabbitmq/messaging-topology-operator/#quickstart)
+- Set up [RMQ Topology Operator](https://www.rabbitmq.com/kubernetes/operator/install-topology-operator.html)
 
 ## Running PoC
 
-- k kustomize ./cluster | kubectl apply -f -
-- k kustomize ./rabbit | kubectl apply -f -
+Set up the RMQ cluster with the following command:
+
+```bash
+k kustomize ./cluster | kubectl apply -f -
+```
+
+Set up the RMQ resources with the following command:
+
+```bash
+k kustomize ./rabbit | kubectl apply -f -
+```
 
 ## Notes
 
